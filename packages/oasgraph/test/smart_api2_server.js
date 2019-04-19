@@ -53,7 +53,7 @@ function stopServer () {
 
 // if run from command line, start server:
 if (require.main === module) {
-  startServer(3002)
+  startServer(3009)
 }
 
 module.exports = {

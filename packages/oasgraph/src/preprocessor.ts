@@ -16,6 +16,7 @@ import {
 
 // Imports:
 import * as Oas3Tools from './oas_3_tools'
+import * as SmartOas3Tools from './smart_oas_3_tools'
 import * as deepEqual from 'deep-equal'
 import debug from 'debug'
 import { handleWarning, getCommonPropertyNames } from './utils'
@@ -41,6 +42,9 @@ export function preprocessOas (
     security: {},
     options
   }
+
+  const labeledOass = SmartOas3Tools.getLabeledOass(oass)
+  const parameterValueTypes = SmartOas3Tools.getParameterValueTypes(labeledOass)
 
   oass.forEach((oas) => {
     // store stats on OAS:
@@ -97,9 +101,19 @@ export function preprocessOas (
           operationId = Oas3Tools.generateOperationId(method, path)
         }
 
-        // Links
-        let links = Oas3Tools.getEndpointLinks(
+        // Smart Links
+        let smartLinks = SmartOas3Tools.getEndpointSmartLinks(
           path, method, oas, data)
+
+        let generatedLinks = SmartOas3Tools.generateLinksFromSmartLinks(
+          smartLinks, parameterValueTypes, oas, labeledOass)
+
+        // Links
+        let links = {
+          ...generatedLinks,
+          ...Oas3Tools.getEndpointLinks(
+            path, method, oas, data),
+        }
 
         // Request schema
         let { payloadContentType, payloadSchema, payloadSchemaNames, payloadRequired } =

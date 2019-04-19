@@ -7,6 +7,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // Type definitions & exports:
 // Imports:
 const Oas3Tools = require("./oas_3_tools");
+const SmartOas3Tools = require("./smart_oas_3_tools");
 const deepEqual = require("deep-equal");
 const debug_1 = require("debug");
 const utils_1 = require("./utils");
@@ -27,6 +28,8 @@ function preprocessOas(oass, options) {
         security: {},
         options
     };
+    const labeledOass = SmartOas3Tools.getLabeledOass(oass);
+    const parameterValueTypes = SmartOas3Tools.getParameterValueTypes(labeledOass);
     oass.forEach((oas) => {
         // store stats on OAS:
         data.options.report.numOps += Oas3Tools.countOperations(oas);
@@ -74,8 +77,11 @@ function preprocessOas(oass, options) {
                 if (typeof operationId === 'undefined') {
                     operationId = Oas3Tools.generateOperationId(method, path);
                 }
+                // Smart Links
+                let smartLinks = SmartOas3Tools.getEndpointSmartLinks(path, method, oas, data);
+                let generatedLinks = SmartOas3Tools.generateLinksFromSmartLinks(smartLinks, parameterValueTypes, oas, labeledOass);
                 // Links
-                let links = Oas3Tools.getEndpointLinks(path, method, oas, data);
+                let links = Object.assign({}, generatedLinks, Oas3Tools.getEndpointLinks(path, method, oas, data));
                 // Request schema
                 let { payloadContentType, payloadSchema, payloadSchemaNames, payloadRequired } = Oas3Tools.getRequestSchemaAndNames(path, method, oas);
                 let payloadDefinition;

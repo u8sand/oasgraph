@@ -13,14 +13,14 @@ const {
   parse,
   validate
 } = require('graphql')
-const api = require('./example_api_server')
-const api2 = require('./example_api3_server')
+const api = require('./smart_api_server')
+const api2 = require('./smart_api3_server')
 
 let createdSchema
-let oas = require('./fixtures/example_oas.json')
-let oas2 = require('./fixtures/example_oas3.json')
-const PORT = 3005
-const PORT2 = 3006
+let oas = require('./fixtures/smart_oas.json')
+let oas2 = require('./fixtures/smart_oas3.json')
+const PORT = 3012
+const PORT2 = 3013
 // update PORT for this test case:
 oas.servers[0].variables.port.default = String(PORT)
 oas2.servers[0].variables.port.default = String(PORT2)

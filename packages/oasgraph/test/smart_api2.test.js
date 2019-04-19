@@ -13,11 +13,11 @@ const {
   parse,
   validate
 } = require('graphql')
-const {startServer, stopServer} = require('./example_api2_server')
+const {startServer, stopServer} = require('./smart_api2_server')
 
 let createdSchema
-let oas = require('./fixtures/example_oas2.json')
-const PORT = 3004
+let oas = require('./fixtures/smart_oas2.json')
+const PORT = 3010
 // update PORT for this test case:
 oas.servers[0].variables.port.default = String(PORT)
 

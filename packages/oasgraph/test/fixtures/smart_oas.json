@@ -63,7 +63,8 @@
 									}
 								}
 							}
-						}
+						},
+						"x-responseValueType": "http://example.org/user"
 					}
 				}
 			},
@@ -89,7 +90,8 @@
 									"$ref": "#/components/schemas/user"
 								}
 							}
-						}
+						},
+						"x-responseValueType": "http://example.org/user"
 					}
 				}
 			}
@@ -105,7 +107,8 @@
 					"schema": {
 						"type": "string"
 					},
-					"description": "Identifier of a user."
+          "description": "Identifier of a user.",
+          "x-parameterValueType": "http://example.org/username"
 				}],
 				"responses": {
 					"200": {
@@ -117,12 +120,13 @@
 								}
 							}
 						},
-						"links": {
+						"x-responseValueType": "http://example.org/user",
+						"x-links": {
 							"employerCompany": {
-								"$ref": "#/components/links/EmployerCompany"
+								"$ref": "#/components/x-links/EmployerCompany"
 							},
 							"author": {
-								"$ref": "#/components/links/Author"
+								"$ref": "#/components/x-links/Author"
 							}
 						}
 					}
@@ -151,7 +155,8 @@
 									"$ref": "#/components/schemas/car"
 								}
 							}
-						}
+						},
+						"x-responseValueType": "http://example.org/car"
 					}
 				}
 			}
@@ -166,7 +171,8 @@
 					"required": true,
 					"schema": {
 						"type": "string"
-					}
+          },
+          "x-parameterValueType": "http://example.org/companyId"
 				}],
 				"responses": {
 					"200": {
@@ -178,9 +184,10 @@
 								}
 							}
 						},
-						"links": {
+						"x-responseValueType": "http://example.org/company",
+						"x-links": {
 							"ceoUser": {
-								"$ref": "#/components/links/CeoUser"
+								"$ref": "#/components/x-links/CeoUser"
 							}
 						}
 					}
@@ -241,7 +248,8 @@
 					"in": "query",
 					"schema": {
 						"type": "string"
-					}
+          },
+          "x-parameterValueType": "http://example.org/query"
 				}],
 				"responses": {
 					"200": {
@@ -258,18 +266,19 @@
 								}
 							}
 						},
-						"links": {
+						"x-responseValueType": "http://example.org/copy",
+						"x-links": {
 							"basicLink": {
-								"$ref": "#/components/links/BasicLink"
+								"$ref": "#/components/x-links/BasicLink"
 							},
 							"constantLink": {
-								"$ref": "#/components/links/ConstantLink"
+								"$ref": "#/components/x-links/ConstantLink"
 							},
 							"variableLink": {
-								"$ref": "#/components/links/VariableLink"
+								"$ref": "#/components/x-links/VariableLink"
 							},
 							"everythingLink": {
-								"$ref": "#/components/links/EverythingLink"
+								"$ref": "#/components/x-links/EverythingLink"
 							}
 						}
 					}
@@ -368,12 +377,13 @@
 								}
 							}
 						},
-						"links": {
+						"x-responseValueType": "http://example.org/office",
+						"x-links": {
 							"owner": {
-								"$ref": "#/components/links/Employee"
+								"$ref": "#/components/x-links/Employee"
 							},
 							"company": {
-								"$ref": "#/components/links/EmployerCompany"
+								"$ref": "#/components/x-links/EmployerCompany"
 							}
 						}
 					}
@@ -396,7 +406,8 @@
 									}
 								}
 							}
-						}
+						},
+						"x-responseValueType": "http://example.org/paper"
 					}
 				}
 			},
@@ -422,7 +433,8 @@
 									"type": "string"
 								}
 							}
-						}
+						},
+						"x-responseValueType": "http://example.org/paper"
 					}
 				}
 			}
@@ -450,7 +462,8 @@
 									"$ref": "#/components/schemas/product-with-id"
 								}
 							}
-						}
+						},
+						"x-responseValueType": "http://example.org/product"
 					}
 				}
 			}
@@ -486,12 +499,13 @@
 								}
 							}
 						},
-						"links": {
+						"x-responseValueType": "http://example.org/product",
+						"x-links": {
 							"reviews": {
-								"$ref": "#/components/links/Reviews"
+								"$ref": "#/components/x-links/Reviews"
 							},
 							"reviewsWithOperationRef": {
-								"$ref": "#/components/links/ReviewsWithOperationRef"
+								"$ref": "#/components/x-links/ReviewsWithOperationRef"
 							}
 						}
 					}
@@ -510,7 +524,8 @@
 						"required": true,
 						"schema": {
 							"type": "string"
-						}
+            },
+            "x-parameterValueType": "http://example.org/productId"
 					},
 					{
 						"name": "product-tag",
@@ -519,7 +534,8 @@
 						"schema": {
 							"type": "string",
               "default": "sport"
-						}
+						},
+            "x-parameterValueType": "http://example.org/productTag"
 					}
 				],
 				"responses": {
@@ -543,7 +559,8 @@
 									}
 								}
 							}
-						}
+						},
+						"x-responseValueType": "http://example.org/review"
 					}
 				}
 			}
@@ -558,7 +575,8 @@
 					"required": true,
 					"schema": {
 						"type": "string"
-					}
+          },
+          "x-parameterValueType": "http://example.org/patentId"
 				}],
 				"responses": {
 					"200": {
@@ -570,9 +588,10 @@
 								}
 							}
 						},
-						"links": {
+						"x-responseValueType": "http://example.org/product",
+						"x-links": {
 							"inventor": {
-								"$ref": "#/components/links/Inventor"
+								"$ref": "#/components/x-links/Inventor"
 							}
 						}
 					}
@@ -609,12 +628,13 @@
 								}
 							}
 						},
-						"links": {
+						"x-responseValueType": "http://example.org/project",
+						"x-links": {
 							"projectLead": {
-								"$ref": "#/components/links/ProjectLead"
+								"$ref": "#/components/x-links/ProjectLead"
 							},
 							"patent": {
-								"$ref": "#/components/links/Patent"
+								"$ref": "#/components/x-links/Patent"
 							}
 						}
 					}
@@ -653,9 +673,10 @@
 								}
 							}
 						},
-						"links": {
+						"x-responseValueType": "http://example.org/product",
+						"x-links": {
 							"ProjectLead": {
-								"$ref": "#/components/links/ProjectLead"
+								"$ref": "#/components/x-links/ProjectLead"
 							}
 						}
 					}
@@ -696,18 +717,19 @@
 								}
 							}
 						},
-						"links": {
+						"x-responseValueType": "http://example.org/copy",
+						"x-links": {
 							"basicLink": {
-								"$ref": "#/components/links/BasicLink"
+								"$ref": "#/components/x-links/BasicLink"
 							},
 							"constantLink": {
-								"$ref": "#/components/links/ConstantLink"
+								"$ref": "#/components/x-links/ConstantLink"
 							},
 							"variableLink": {
-								"$ref": "#/components/links/VariableLink"
+								"$ref": "#/components/x-links/VariableLink"
 							},
 							"everythingLink": {
-								"$ref": "#/components/links/EverythingLink"
+								"$ref": "#/components/x-links/EverythingLink"
 							}
 						}
 					}
@@ -758,21 +780,22 @@
 								}
 							}
 						},
-						"links": {
+						"x-responseValueType": "http://example.org/copy",
+						"x-links": {
 							"basicLink": {
-								"$ref": "#/components/links/BasicLink"
+								"$ref": "#/components/x-links/BasicLink"
 							},
 							"constantLink": {
-								"$ref": "#/components/links/ConstantLink"
+								"$ref": "#/components/x-links/ConstantLink"
 							},
 							"variableLink": {
-								"$ref": "#/components/links/VariableLink"
+								"$ref": "#/components/x-links/VariableLink"
 							},
 							"everythingLink": {
-								"$ref": "#/components/links/EverythingLink"
+								"$ref": "#/components/x-links/EverythingLink"
 							},
 							"everythingLink2": {
-								"$ref": "#/components/links/EverythingLink2"
+								"$ref": "#/components/x-links/EverythingLink2"
 							}
 						}
 					}
@@ -817,7 +840,8 @@
 									"description": "What snack is offered."
 								}
 							}
-						}
+						},
+						"x-responseValueType": "http://example.org/status"
 					}
 				}
 			}
@@ -845,7 +869,8 @@
 								}
 							}
 						}
-					}
+					},
+					"x-responseValueType": "http://example.org/status"
 				}
 			},
 			"post": {
@@ -874,7 +899,8 @@
 									"type": "string"
 								}
 							}
-						}
+						},
+						"x-responseValueType": "http://example.org/status"
 					}
 				}
 			},
@@ -898,7 +924,8 @@
 									"description": "A secure message."
 								}
 							}
-						}
+						},
+						"x-responseValueType": "http://example.org/message"
 					}
 				}
 			}
@@ -1126,100 +1153,98 @@
         }
       }
 		},
-		"links": {
+		"x-links": {
 			"Author": {
-				"$ref" : "ThisIsHereAndFormattedThisWayBecauseOfAnIssueWithADependency",
-				"operationRef": "Example API 3#/paths/~1authors~1{authorId}/get",
+				"x-valueType": "http://example.org/author",
 				"parameters": {
-					"authorId": "$request.path.username"
+					"http://example.org/authorId": "$request.path.username"
 				},
         "description": "Link between two different APIs"
-			},
+      },
 			"Employee": {
-				"operationId": "getUserByUsername",
+				"x-valueType": "http://example.org/user",
 				"parameters": {
-					"username": "$response.body#/employeeId"
+					"http://example.org/username": "$response.body#/employeeId"
 				},
         "description": "Allows to fetch the user who invented a product."
 			},
 			"EmployerCompany": {
-        "operationId": "getCompanyById",
+				"x-valueType": "http://example.org/company",
 				"parameters": {
-					"id": "$response.body#/employerId"
+					"http://example.org/companyId": "$response.body#/employerId"
 				},
         "description": "Allows to fetch the user's employer company."
 			},
 			"CeoUser": {
-        "operationId": "getUserByUsername",
+				"x-valueType": "http://example.org/user",
 				"parameters": {
-					"username": "$response.body#/ceoUsername"
+					"http://example.org/username": "$response.body#/ceoUsername"
 				},
         "description": "Allows to fetch the company's CEO user."
 			},
 			"ProjectLead": {
-				"operationId": "getUserByUsername",
+				"x-valueType": "http://example.org/user",
 				"parameters": {
-					"username": "$response.body#/leadId"
+					"http://example.org/username": "$response.body#/leadId"
 				},
         "description": "Allows to fetch the user leading a project."
 			},
 			"Patent": {
-				"operationId": "get-patent-with-id",
+				"x-valueType": "http://example.org/patent",
 				"parameters": {
-					"patent-id": "$response.body#/patentId"
+					"http://example.org/patentId": "$response.body#/patentId"
 				},
         "description": "Allows to fetch a patent."
 			},
 			"Inventor": {
-				"operationId": "getUserByUsername",
+				"x-valueType": "http://example.org/user",
 				"parameters": {
-					"username": "$response.body#/inventorId"
+					"http://example.org/username": "$response.body#/inventorId"
 				},
         "description": "Allows to fetch the user who invented a product."
 			},
 			"BasicLink": {
-				"operationId": "getCopier",
+				"x-valueType": "http://example.org/copy",
 				"parameters": {
-					"query": "$request.query.query"
+					"http://example.org/query": "$request.query.query"
 				}
 			},
 			"ConstantLink": {
-				"operationId": "getCopier",
+				"x-valueType": "http://example.org/copy",
 				"parameters": {
-					"query": "123"
+					"http://example.org/query": "123"
 				}
 			},
 			"VariableLink": {
-				"operationId": "getCopier",
+				"x-valueType": "http://example.org/copy",
 				"parameters": {
-					"query": "_{$request.query.query}_{$request.query.query}{$request.query.query}abc{$request.query.query}123"
+					"http://example.org/query": "_{$request.query.query}_{$request.query.query}{$request.query.query}abc{$request.query.query}123"
 				}
 			},
 			"EverythingLink": {
-				"operationId": "getCopier",
+				"x-valueType": "http://example.org/copy",
 				"parameters": {
-					"query": "{$url}_{$method}_{$statusCode}_{$request.query.query}_{$request.header.accept}_{$response.header.connection}"
+					"http://example.org/query": "{$url}_{$method}_{$statusCode}_{$request.query.query}_{$request.header.accept}_{$response.header.connection}"
 				}
 			},
 			"EverythingLink2": {
-				"operationId": "getCopier",
+				"x-valueType": "http://example.org/copy",
 				"parameters": {
-					"query": "{$url}_{$method}_{$statusCode}_{$request.body}_{$request.query.query}_{$request.path.path}_{$request.header.accept}_{$response.body#/body}_{$response.query.query}_{$response.path.path}_{$response.header.connection}"
+					"http://example.org/query": "{$url}_{$method}_{$statusCode}_{$request.body}_{$request.query.query}_{$request.path.path}_{$request.header.accept}_{$response.body#/body}_{$response.query.query}_{$response.path.path}_{$response.header.connection}"
 				}
 			},
 			"Reviews": {
-				"operationId": "getProductReviews",
+				"x-valueType": "http://example.org/review",
 				"parameters": {
-					"id": "$request.path.product-id",
-					"product-tag": "$request.query.product-tag"
+					"http://example.org/productId": "$request.path.product-id",
+					"http://example.org/productTag": "$request.query.product-tag"
 				}
 			},
 			"ReviewsWithOperationRef": {
-				"$ref" : "ThisIsHereAndFormattedThisWayBecauseOfAnIssueWithADependency",
-				"operationRef": "#/paths/~1products~1{id}~1reviews/get",
+				"x-valueType": "http://example.org/review",
 				"parameters": {
-					"id": "$request.path.product-id",
-					"product-tag": "$request.query.product-tag"
+					"http://example.org/productId": "$request.path.product-id",
+					"http://example.org/productTag": "$request.query.product-tag"
 				}
 			}
 		},
