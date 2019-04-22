@@ -1,5 +1,5 @@
 {
-  "name": "oasgraph-root",
+  "name": "smartapi-oasgraph-root",
   "private": true,
   "scripts": {
     "test": "cd packages/oasgraph/ && npm test"
