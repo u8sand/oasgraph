@@ -1,6 +1,6 @@
 {
   "name": "smartapi-oasgraph-cli",
-  "version": "0.4.1",
+  "version": "0.5.1",
   "description": "CLI for turning APIs described by OpenAPI Specifications (OAS) into GraphQL interfaces",
   "copyright.owner": "IBM Corp.",
   "contributors": [
@@ -49,8 +49,8 @@
     "express-graphql": "^0.7.1",
     "graphql": "^14.0.2",
     "js-yaml": "^3.12.0",
-    "smartapi-oasgraph": "^0.14.1",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "smartapi-oasgraph": "^0.15.1"
   },
   "devDependencies": {
     "@types/node": "^11.9.4",
